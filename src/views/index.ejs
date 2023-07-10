@@ -16,38 +16,37 @@
         <a href="#about">About</a>
     </div>
 
-    <h2>List User</h2>
-    <%= JSON.stringify(dataUser) %>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Action</th>
-            </tr>
-            <tbody>
+    <h2>List Users</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+        <tbody>
 
-                <% for(var i=0; i < dataUser.length; i++) { %>
-                    <tr>
-                        <td>
-                            <%= dataUser[i].id%>
-                        </td>
-                        <td>
-                            <%= dataUser[i].firstName%>
-                        </td>
-                        <td>
-                            <%= dataUser[i].lastName%>
-                        </td>
-                        <td>
-                            <button onclick=" window.open('/detail/user/<%= dataUser[i].id%>','_blank')">Detail</button>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
-                    <% } %>
+            <% for(var i=0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dataUser[i].id%>
+                    </td>
+                    <td>
+                        <%= dataUser[i].firstName%>
+                    </td>
+                    <td>
+                        <%= dataUser[i].lastName%>
+                    </td>
+                    <td>
+                        <button onclick=" window.open('/detail/user/<%= dataUser[i].id%>','_blank')">Detail</button>
+                        <button onclick=" window.open('/edit/user/<%= dataUser[i].id%>','_blank')">Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+                <% } %>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
 </body>
 
