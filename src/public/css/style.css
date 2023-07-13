@@ -42,3 +42,24 @@ td {
 tr:hover {
     background-color: coral;
 }
+
+.create-new-user-content {
+    padding: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+.btn-submit {
+    cursor: pointer;
+}
+
+.update-new-user-content {
+    text-align: center;
+}
+
+.btn-update {
+    cursor: pointer;
+}

@@ -25,7 +25,6 @@
             <th>Action</th>
         </tr>
         <tbody>
-
             <% for(var i=0; i < dataUser.length; i++) { %>
                 <tr>
                     <td>
@@ -38,15 +37,48 @@
                         <%= dataUser[i].lastName%>
                     </td>
                     <td>
-                        <button onclick=" window.open('/detail/user/<%= dataUser[i].id%>','_blank')">Detail</button>
-                        <button onclick=" window.open('/edit/user/<%= dataUser[i].id%>','_blank')">Edit</button>
-                        <button>Delete</button>
+                        <form action="/detail/user/<%= dataUser[i].id%>" method="GET">
+                            <button type="submit">Detail</button>
+                        </form>
+
+                        <form action="/edit/user/<%= dataUser[i].id%>" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="/delete/user" method="POST">
+                            <input type="text" hidden value="<%= dataUser[i].id%>" name="userID" />
+                            <button type="submit">Delete</button>
+                        </form>
+
                     </td>
                 </tr>
                 <% } %>
-
         </tbody>
     </table>
+    <form action='/add/user' method="POST">
+        <div class="create-new-user-content">
+            <div><b>Create new user</b></div>
+            <div>
+                <label>First name</label>
+                <input type="text" name="firstName">
+            </div>
+            <div>
+                <label>Last name</label>
+                <input type="text" name="lastName">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label>Address</label>
+                <input type="text" name="address">
+            </div>
+            <div>
+                <button type="submit" class="btn-submit" value="Submit"
+                    onclick="window.open('/add/user')">Submit</button>
+            </div>
+        </div>
+    </form>
 
 </body>
 

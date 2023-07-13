@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update user</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+    <%= JSON.stringify(data.id)%>
+        <form action='/update/user' method="POST">
+            <div class="update-new-user-content">
+                <div><b>Update user</b></div>
+                <div>
+                    <label>First name</label>
+                    <input name="firstName" value="<%= data.firstName%>">
+                </div>
+                <div>
+                    <label>Last name</label>
+                    <input name="lastName" value="<%= data.lastName%>">
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input name="email" value="<%= data.email%>">
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input name="address" value="<%= data.address%>">
+                </div>
+                <div>
+                    <input type="text" hidden value="<%= data.id%>" name="id" />
+                    <button type="submit" class="btn-update" value="Submit">Update</button>
+                </div>
+            </div>
+        </form>
+</body>
+
+</html>
