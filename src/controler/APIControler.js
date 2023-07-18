@@ -1,8 +1,11 @@
 import pool from "../config/connectDB"
 
 let getAllUsers = async (req, res) => {
-    let [rows, fields] = await pool.execute('SELECT * FROM `user`');
-
+    try {
+        let [rows, fields] = await pool.execute('SELECT * FROM `user`');
+    } catch (error) {
+        throw error
+    }
     return res.status(201).json({
         message: "Successfully Registered",
         status: 201,
@@ -18,8 +21,12 @@ let createUsers = async (req, res) => {
             message: "missing information"
         })
     }
-    await pool.execute('INSERT INTO user (firstName, lastName, email, address) VALUES (?, ?, ?, ?)', [firstName, lastName,
-        email, address]);
+    try {
+        await pool.execute('INSERT INTO user (firstName, lastName, email, address) VALUES (?, ?, ?, ?)', [firstName, lastName,
+            email, address]);
+    } catch (error) {
+        throw error
+    }
     return res.status(201).json({
         message: "succesfully",
     })
@@ -33,8 +40,12 @@ let updateUsers = async (req, res) => {
             message: "missing information"
         })
     }
-    await pool.execute('UPDATE user SET firstName = ?, lastName = ?, email = ?, address = ? WHERE id = ?',
-        [firstName, lastName, email, address, id]);
+    try {
+        await pool.execute('UPDATE user SET firstName = ?, lastName = ?, email = ?, address = ? WHERE id = ?',
+            [firstName, lastName, email, address, id]);
+    } catch (error) {
+        throw error
+    }
     return res.status(201).json({
         message: "Successfully Registered",
         status: 201
@@ -48,7 +59,11 @@ let deleteUsers = async (req, res) => {
             message: "missing information"
         })
     }
-    await pool.execute('DELETE FROM user WHERE id = ?; ', [id]);
+    try {
+        await pool.execute('DELETE FROM user WHERE id = ?; ', [id]);
+    } catch (error) {
+        throw error;
+    }
 
     return res.status(201).json({
         message: "Successfully Registered",
