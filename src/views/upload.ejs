@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noteJS Basic</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="/js/functions.js">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/upload" class="active">Upload</a>
+
+    </div>
+
+    <div class='upload-container'>
+        <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+            <div>
+                <label>Select your profile picture:</label>
+                <input type="file" name="profile_pic" />
+            </div>
+            <div>
+                <input type="submit" name="btn_upload_profile_pic" value="Upload" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
+            <div>
+                <label>Select multiple images:</label>
+                <input type="file" name="multiple_images" multiple />
+            </div>
+            <div>
+                <input type="submit" name="btn_upload_multiple_images" value="Upload" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
